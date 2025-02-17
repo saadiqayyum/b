@@ -2,4 +2,4 @@ FROM ubuntu
 
 RUN echo "Hello, World!"
 
-CMD ['sleep', 'infinity']
+CMD ["tail", "-f", "/dev/null"]
