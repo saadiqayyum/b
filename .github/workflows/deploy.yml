@@ -23,14 +23,10 @@ jobs:
           docker build -t $IMAGE_NAME:$TAG .
           docker push $IMAGE_NAME:$TAG
 
-      - name: Set up kubectl
+      - name: Update Kubernetes Deployment
         run: |
           echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > kubeconfig
           export KUBECONFIG=$PWD/kubeconfig
-          kubectl cluster-info
-
-      - name: Update Kubernetes Deployment
-        run: |
           IMAGE_NAME=saadiqayyum/mongosh
           TAG=$(echo $GITHUB_SHA | cut -c1-7)
           kubectl set image deployment/app-name app-container=$IMAGE_NAME:$TAG --namespace=default
