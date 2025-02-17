@@ -29,4 +29,4 @@ jobs:
           export KUBECONFIG=$PWD/kubeconfig
           IMAGE_NAME=saadiqayyum/mongosh
           TAG=$(echo $GITHUB_SHA | cut -c1-7)
-          kubectl set image deployment/dg-67b1aaace9b44c69d80afe5d app-container=$IMAGE_NAME:$TAG --namespace=default
+          kubectl set image deployment/dg-67b1aaace9b44c69d80afe5d dg-67b1aaace9b44c69d80afe5d=$IMAGE_NAME:$TAG --namespace=default
