@@ -1,4 +1,4 @@
-FROM ubuntu:slim
+FROM ubuntu
 
 RUN echo "Hello, World!"
 
